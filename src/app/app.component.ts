@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-
+import { SearchbarService } from './services/searchbar.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'angular-searchbar-coderpad-project';
 
-  gifyAPI_Key = 'UVEOZu2f6XGWLOatqBC5aGOmbqlpHNmV';
-
-  constructor(){}
+  constructor(private searchBarService: SearchbarService) {}
 }
