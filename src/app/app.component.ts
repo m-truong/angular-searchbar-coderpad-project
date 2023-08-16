@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-searchbar-coderpad-project';
+
+  gifyAPI_Key = 'UVEOZu2f6XGWLOatqBC5aGOmbqlpHNmV';
+
+  constructor(){}
 }

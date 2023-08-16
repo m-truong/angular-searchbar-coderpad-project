@@ -6,6 +6,12 @@
  * 4. and it should return those images being displayed in a Grid
  */
 
+/**
+ * whiteboard:
+ * - app component should house the search logic - and stateful 
+ * - the search bar should take users <input> and pass that data back up to the <App> main component 
+ * - 
+ */
 import { Component } from '@angular/core';
 
 @Component({
@@ -15,5 +21,5 @@ import { Component } from '@angular/core';
 })
 export class SearchBarComponent {
 
-  
+
 }
