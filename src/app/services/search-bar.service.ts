@@ -1,0 +1,26 @@
+import { Injectable } from '@angular/core';
+// Note: HttpParams is required to inject Query Parameters in an HTTP Request
+// Note: HttpHeaders is required to add HTTP Headers to a HTTP Request
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators'
+import * as _ from 'lodash';
+
+@Injectable({
+  providedIn: 'root', 
+})
+export class SearchBarService {
+
+  // Note: The HttpClient is the main service, which Performs the HTTP requests like GET, PUT, POST, etc. We need to inject this into our GitHubService. 
+  constructor(private httpClient: HttpClient) {}
+
+  // hardcoded url endpoint
+  baseGiphyURL: string = 'api.giphy.com/v1/gifs/search';
+  giphyAPI_Key: string  = 'UVEOZu2f6XGWLOatqBC5aGOmbqlpHNmV';
+
+  getGiphy(): Observable<any> {
+    this.httpClient.get(this.baseGiphyURL, { [ params: this.giphyAPI_Key] });
+
+    return null;
+  }
+}
