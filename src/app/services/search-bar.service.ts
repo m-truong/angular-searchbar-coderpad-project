@@ -13,21 +13,30 @@ export class SearchBarService {
 	// Note: The HttpClient is the main service, which Performs the HTTP requests like GET, PUT, POST, etc. We need to inject this into our GitHubService.
 	constructor(private httpClient: HttpClient) {}
 
-	// TODO1: get 2-way data-binding for input search
+	// TODO 1: get 2-way data-binding for input search
 
 	// hardcoded url endpoint
-	baseGiphyURL: string = 'api.giphy.com/v1/gifs/search';
+	baseGiphyURL: string = 'https://api.giphy.com/v1/gifs/search';
 	giphyAPI_Key: string = 'UVEOZu2f6XGWLOatqBC5aGOmbqlpHNmV';
 
 	getGiphy(): Observable<any> {
 		// Important: new technique of chaining multiple .append() methods to HttpParams() Angular module
-		let queryParams = new HttpParams()
-			.append('api_key', this.giphyAPI_Key)
-			.append('q');
+
+		// REFACTOR 1: let queryParams = new HttpParams()
+		// 	.append('api_key', this.giphyAPI_Key)
+		// 	.append('q', 'cheeseburgers');
+
+		// REFACTOR 2: this.createParams();
+
 		return this.httpClient.get(this.baseGiphyURL, {
-			params: queryParams,
+			params: this.createParams(),
 		});
 	}
 
-	createParams(): void {}
+	createParams(): HttpParams {
+		let queryParams: any;
+		return (queryParams = new HttpParams()
+			.append('api_key', this.giphyAPI_Key)
+			.append('q', 'cheeseburgers'));
+	}
 }
