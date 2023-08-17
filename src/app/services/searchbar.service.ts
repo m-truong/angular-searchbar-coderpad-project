@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-// import { Observable } from 'rxjs/Observable';
+// Note: HttpParams is required to inject Query Parameters in an HTTP Request
+// Note: HGttpHeaders is required to add HTTP Headers to a HTTP Request
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SearchbarService {
-  gifyAPI_Key = 'UVEOZu2f6XGWLOatqBC5aGOmbqlpHNmV';
 
   constructor(private httpClient: HttpClient) {}
 
-  getGiphy() {
-    // this.httpClient.get
+  giphyURL: string = 'api.giphy.com/v1/gifs/search';
+  giphyAPI_Key: string  = 'UVEOZu2f6XGWLOatqBC5aGOmbqlpHNmV';
+
+  getGiphy(): Observable<any> {
+    this.httpClient.get(this.giphyURL, { [ params: this.giphyAPI_Key] });
+
+    return null;
   }
 }

@@ -22,7 +22,9 @@ import { SearchbarService } from '../services/searchbar.service';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent implements OnInit {
+
   constructor(private searchBarService: SearchbarService) {}
+
   ngOnInit() {
     
   }
