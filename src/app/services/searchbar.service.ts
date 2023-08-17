@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+// import { Observable } from 'rxjs/Observable';
+import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root',
@@ -6,5 +9,9 @@ import { Injectable } from '@angular/core';
 export class SearchbarService {
   gifyAPI_Key = 'UVEOZu2f6XGWLOatqBC5aGOmbqlpHNmV';
 
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
+
+  getGiphy() {
+    // this.httpClient.get
+  }
 }
