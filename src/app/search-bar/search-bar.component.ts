@@ -24,8 +24,7 @@ import { logger } from '../shared/utils/common-functions';
 	styleUrls: ['./search-bar.component.scss'],
 })
 export class SearchBarComponent implements OnInit {
-	constructor(private searchBarService: SearchBarService) // private logger: any
-	{}
+	constructor(private searchBarService: SearchBarService) {}
 
 	ngOnInit() {
 		logger('SearchBar', this);
