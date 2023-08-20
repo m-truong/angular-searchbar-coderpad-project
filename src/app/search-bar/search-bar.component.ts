@@ -16,6 +16,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SearchBarService } from '../services/search-bar.service';
 import { GiphyObject } from '../types/giphy-types';
+import { logger } from '../shared/utils/common-functions';
 
 @Component({
 	selector: 'app-search-bar',
@@ -23,9 +24,12 @@ import { GiphyObject } from '../types/giphy-types';
 	styleUrls: ['./search-bar.component.scss'],
 })
 export class SearchBarComponent implements OnInit {
-	constructor(private searchBarService: SearchBarService) {}
+	constructor(private searchBarService: SearchBarService) // private logger: any
+	{}
 
-	ngOnInit() {}
+	ngOnInit() {
+		logger('SearchBar', this);
+	}
 
 	sendGiphyRequest(): any {
 		return this.searchBarService.getGiphy().subscribe();
