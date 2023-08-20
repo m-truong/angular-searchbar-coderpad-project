@@ -4,3 +4,7 @@ export const logger = (component: string, instance: any) => {
 		instance
 	);
 };
+
+export const loggerCommand = (command: string, data: any) => {
+	console.log(`=> Logging this action ${command}`, data);
+};
