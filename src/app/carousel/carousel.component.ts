@@ -14,8 +14,6 @@ import { logger, loggerCommand } from '../shared/utils/common-functions';
 	styleUrls: ['./carousel.component.scss'],
 })
 export class CarouselComponent implements OnInit, OnChanges {
-	@Input()
-	unnecessaryPassingDownGiphyData: any;
 
 	// internal state
 	giphyImageURL: any;
@@ -27,19 +25,9 @@ export class CarouselComponent implements OnInit, OnChanges {
 	}
 
 	ngOnChanges(changes: SimpleChanges): void {
-		// if (changes['unnecessaryPassingDownGiphyData'].isFirstChange()) {
-		// this.giphyImageURL = this.unnecessaryPassingDownGiphyData;
-		// }
 		this.attachGiphyImg();
 	}
 
 	attachGiphyImg() {
-		// this.giphyImage = this.searchBarService.giphyImageRequested;
-		loggerCommand(
-			'~ getting the image from the Observable GiphyAPI data',
-			this.unnecessaryPassingDownGiphyData.data
-		);
-		this.giphyImageURL =
-			this.unnecessaryPassingDownGiphyData.data[0].images.origial.url;
 	}
 }

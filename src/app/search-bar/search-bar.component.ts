@@ -28,29 +28,17 @@ export class SearchBarComponent implements OnInit {
 	// but should the search-bar component store the
 	constructor(private searchBarService: SearchBarService) {}
 
-	@Output()
-	searchBarData: EventEmitter<any> = new EventEmitter<any>();
-
 	ngOnInit() {
 		logger('SearchBar', this);
 	}
 
-	// Encapsulation question?
-	// So the sendGiphyRequest from inside the search-bar Component will make the call and then store the data inside the searchBarService?
 	sendGiphyRequest(): void {
-		// REFACTOR LOGIC:
 		let dataReq: any = this.searchBarService.getGiphy().subscribe();
 		this.storeReturnedRequest(dataReq);
-		// this.searchBarService.data = dataReq;
-		// optionally rturning this [data] if whenever IT IS INVOKED!
-		this.searchBarData = dataReq;
-	}
-
-	liftDataBackToParent(data: any): void {
-		this.searchBarData = data;
 	}
 
 	storeReturnedRequest(dataPassDown: any): void {
-		this.searchBarService.giphyImageRequested = dataPassDown;
+		// this.searchBarService.giphyImageRequested = dataPassDown;
+		this.searchBarService.setGiphyData(dataPassDown);
 	}
 }

@@ -16,13 +16,18 @@ export class SearchBarService implements OnChanges {
 	// TODO 1: get 2-way data-binding for input search
 
 	// TODO:
-	giphyImageRequested: any; // Todo: HOW TO MAKE this data variable watchable()
+	private giphyImageRequested: any; // Todo: HOW TO MAKE this data variable watchable()
 
 	ngOnChanges(changes: SimpleChanges): void {}
 
 	// hardcoded url endpoint
 	baseGiphyURL: string = 'https://api.giphy.com/v1/gifs/search';
 	giphyAPI_Key: string = 'UVEOZu2f6XGWLOatqBC5aGOmbqlpHNmV';
+
+	setGiphyData(giphyData: any ): void {
+		this.giphyImageRequested = giphyData;
+		console.log('the giphy data has been set', this.giphyImageRequested)
+	}
 
 	getGiphy(): Observable<any> {
 		// Important: new technique of chaining multiple .append() methods to HttpParams() Angular module
