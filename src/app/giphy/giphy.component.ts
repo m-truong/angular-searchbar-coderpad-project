@@ -20,15 +20,20 @@ export class GiphyComponent implements OnInit , OnDestroy{
 	private giphyImageSubscription!: Subscription;
 
 	currentGiphyObject: GiphyObject | null = null;
+	currentGiphyImgUrl: string | null = null;
 
 
 	ngOnInit(): void {
 		// WHENever you call RxJS .subscribe() IT returns a Subscription-type listener -> for async data-communication!
-		this.giphyImageSubscription = this.searchBarService.getGiphyData().subscribe((giphyObject) => {this.currentGiphyObject = giphyObject});
+		this.giphyImageSubscription = this.searchBarService.getGiphyData().subscribe((giphyObject) => {
+			console.log('CurrentGiphyObject is...', giphyObject)
+			this.currentGiphyObject = giphyObject
+		});
 	}
 
 	// TODO: add logic to grab the URL from the GiphyObject and then display into the GiphyHTML
 	attachGiphyImg() {
+
 	}
 
 	ngOnDestroy(): void {

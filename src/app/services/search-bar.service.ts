@@ -24,7 +24,8 @@ export class SearchBarService {
 	// you're setting the Observable<network request> as a SUBSCRIBABLE Data?
 	private giphyImageRequestedData = new BehaviorSubject<GiphyObject|null>(null);
 
-	sendGiphyRequestToAPIAndReturnObservable(giphyFormValue: any): Observable<any> {
+	sendGiphyRequestToAPIAndReturnObservable(giphyFormValue: string): Observable<any> {
+		console.log('sent data is...', giphyFormValue)
 		const giphyData = this.httpClient.get(this.baseGiphyURL, {
 			params: this.createParams(giphyFormValue),
 		});
@@ -50,9 +51,8 @@ export class SearchBarService {
 		// Note: this is the WRONG way to set a RxJS Subject data
 		// this.giphyImageRequestedData = giphyData;
 		// Note: Correct way is to call.next on the Behavior Subject
-
-
 		this.giphyImageRequestedData.next(giphyData);
+		console.log('The sent request is...', this.giphyImageRequestedData)
 	}
 
 }
