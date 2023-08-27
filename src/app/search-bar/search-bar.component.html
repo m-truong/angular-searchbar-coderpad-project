@@ -1,18 +1,12 @@
-<!-- TODO: Refactor this HTML form to use Angular built-in Forms to capture the users input -->
-
-<form id="giphyForm">
-	<label for="search-bar"> Search here to use Giphy API! </label>
-	<!-- Note: this "name" attribute on the <input> tag is required to capture the key-value pair for the <input> value -->
+<form
+	#giphyForm="ngForm"
+	(ngSubmit)="sendGiphyRequest(giphyForm.value)">
+	<label for="giphy">Type your search for GiphyAPI</label>
 	<input
-		id="search-bar"
-		name="search-bar"
 		type="text"
-		placeholder="Type in your text to search GiphyAPI"
-		minlength="3"
-		maxlength="30" />
-	<input
-		type="submit"
-		value="Click to Submit to GiphyAPI!"
-		class="block"
-		(click)="sendGiphyRequest()" />
+		id="giphy"
+		name="giphy"
+		ngModel
+		required />
+	<button type="submit">Submit</button>
 </form>

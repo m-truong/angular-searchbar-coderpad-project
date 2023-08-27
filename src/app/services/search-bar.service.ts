@@ -10,13 +10,9 @@ import * as _ from 'lodash';
 	providedIn: 'root',
 })
 export class SearchBarService implements OnChanges {
-	// Note: The HttpClient is the main service, which Performs the HTTP requests like GET, PUT, POST, etc. We need to inject this into our GitHubService.
 	constructor(private httpClient: HttpClient) {}
 
-	// TODO 1: get 2-way data-binding for input search
-
-	// TODO:
-	private giphyImageRequested: any; // Todo: HOW TO MAKE this data variable watchable()
+	private giphyImageRequested: any; 
 
 	ngOnChanges(changes: SimpleChanges): void {}
 
@@ -29,33 +25,16 @@ export class SearchBarService implements OnChanges {
 		console.log('the giphy data has been set', this.giphyImageRequested)
 	}
 
-	getGiphy(): Observable<any> {
-		// Important: new technique of chaining multiple .append() methods to HttpParams() Angular module
-
-		// REFACTOR 1: let queryParams = new HttpParams()
-		// 	.append('api_key', this.giphyAPI_Key)
-		// 	.append('q', 'cheeseburgers');
-
-		// REFACTOR 2: this.createParams();
-
+	getGiphy(giphyFormValue: any): Observable<any> {
 		return this.httpClient.get(this.baseGiphyURL, {
-			params: this.createParams(),
+			params: this.createParams(giphyFormValue),
 		});
 	}
 
-	createParams(): HttpParams {
+	createParams(giphyFormValue: any): HttpParams {
 		let queryParams: any;
 		return (queryParams = new HttpParams()
 			.append('api_key', this.giphyAPI_Key)
-			.append('q', 'cheeseburgers'));
+			.append('q', giphyFormValue));
 	}
-
-	// Add a method that will EMIT an Event using EventEmitter to rest of searchbar_app
-	// the method should send the data via EventEmitter
-
-	// Add an eventListener on the CarouselComponent
-	// that listens for changeDetection of the data
-	// then display the data
-
-	// searchBarServiceDataChangeDetection(): void {}
 }

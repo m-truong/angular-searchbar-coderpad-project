@@ -24,21 +24,17 @@ import { logger } from '../shared/utils/common-functions';
 	styleUrls: ['./search-bar.component.scss'],
 })
 export class SearchBarComponent implements OnInit {
-	// TODO: search-bar just contains the string that the <inpu> user adds to send teh text data
-	// but should the search-bar component store the
 	constructor(private searchBarService: SearchBarService) {}
 
 	ngOnInit() {
 		logger('SearchBar', this);
 	}
 
-	sendGiphyRequest(): void {
-		let dataReq: any = this.searchBarService.getGiphy().subscribe();
-		this.storeReturnedRequest(dataReq);
-	}
-
-	storeReturnedRequest(dataPassDown: any): void {
-		// this.searchBarService.giphyImageRequested = dataPassDown;
-		this.searchBarService.setGiphyData(dataPassDown);
+	sendGiphyRequest(giphyFormValue: any): void {
+		console.log('Form giphy search string is...', giphyFormValue)
+		// use the Angular Form data to send to SearchBarService
+		let dataReq: any = this.searchBarService.getGiphy(giphyFormValue).subscribe();
+		// store the giphy data
+		this.searchBarService.setGiphyData(dataReq);
 	}
 }
