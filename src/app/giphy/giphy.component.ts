@@ -6,11 +6,11 @@ import {
 import { SearchBarService } from '../services/search-bar.service';
 
 @Component({
-	selector: 'app-carousel',
-	templateUrl: './carousel.component.html',
-	styleUrls: ['./carousel.component.scss'],
+	selector: 'app-giphy',
+	templateUrl: './giphy.component.html',
+	styleUrls: ['./giphy.component.scss'],
 })
-export class CarouselComponent implements OnInit {
+export class GiphyComponent implements OnInit {
 
 	giphyImageURL: any;
 

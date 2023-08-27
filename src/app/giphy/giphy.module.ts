@@ -1,11 +1,11 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CarouselComponent } from './carousel.component';
+import { GiphyComponent } from './giphy.component';
 
 @NgModule({
-	exports: [CarouselComponent],
+	exports: [GiphyComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
-	declarations: [CarouselComponent],
+	declarations: [GiphyComponent],
 	imports: [CommonModule],
 })
-export class CarouselModule {}
+export class GiphyModule {}

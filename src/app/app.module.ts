@@ -8,9 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 // import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchBarService } from './services/search-bar.service';
-import { CarouselComponent } from './carousel/carousel.component';
+import { GiphyComponent } from './giphy/giphy.component';
 import { SearchBarModule } from './search-bar/search-bar.module';
-import { CarouselModule } from './carousel/carousel.module';
+import { GiphyModule } from './giphy/giphy.module';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -21,7 +21,7 @@ import { CarouselModule } from './carousel/carousel.module';
 		HttpClientModule,
 		FormsModule,
 		SearchBarModule,
-		CarouselModule,
+		GiphyModule,
 	],
 	// Note: always add all Angular services or controllers/resolvers to the providers-array
 	providers: [SearchBarService],
