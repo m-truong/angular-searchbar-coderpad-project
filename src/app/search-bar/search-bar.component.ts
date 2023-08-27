@@ -33,8 +33,6 @@ export class SearchBarComponent implements OnInit {
 	sendGiphyRequest(giphyFormValue: any): void {
 		console.log('Form giphy search string is...', giphyFormValue)
 		// use the Angular Form data to send to SearchBarService
-		let dataReq: any = this.searchBarService.getGiphy(giphyFormValue).subscribe();
-		// store the giphy data
-		this.searchBarService.setGiphyData(dataReq);
+		this.searchBarService.sendGiphyRequestToAPI(giphyFormValue).subscribe();
 	}
 }
