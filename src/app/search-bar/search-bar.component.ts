@@ -32,7 +32,8 @@ export class SearchBarComponent implements OnInit {
 
 	sendGiphyRequest(giphyFormValue: any): void {
 		console.log('Form giphy search string is...', giphyFormValue)
-		// use the Angular Form data to send to SearchBarService
-		this.searchBarService.sendGiphyRequestToAPI(giphyFormValue).subscribe();
+		// Note: There's no need to method change and subscribe to the Observable Async data...
+		// Since the SearchBar component isn't DOING anything with that data ... therefore, it shoudn't subscribe yet
+		this.searchBarService.sendGiphyRequestToAPIAndReturnObservable(giphyFormValue);
 	}
 }
