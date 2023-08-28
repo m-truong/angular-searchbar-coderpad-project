@@ -1,7 +1,6 @@
 import { Injectable, OnChanges, SimpleChanges } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, BehaviorSubject, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
 import * as _ from 'lodash';
 import { GiphyObject } from '../types/giphy-types';
 
