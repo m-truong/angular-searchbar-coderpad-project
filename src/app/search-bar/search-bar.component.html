@@ -1,4 +1,6 @@
+<!-- <div class="flex-container"> -->
 <form
+	class="flex-form"
 	#giphyForm="ngForm"
 	(ngSubmit)="sendGiphyRequest(giphyForm.value)">
 	<label for="giphy">Type your search for GiphyAPI</label>
@@ -10,3 +12,4 @@
 		required />
 	<button type="submit">Submit</button>
 </form>
+<!-- </div> -->

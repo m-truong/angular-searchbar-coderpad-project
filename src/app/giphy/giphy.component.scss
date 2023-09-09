@@ -4,3 +4,10 @@
 	object-fit: cover;
 	display: block;
 }
+
+.center-div {
+	display: flex;
+	justify-content: center; /* Horizontal centering */
+	align-items: center; /* Vertical centering */
+	height: 50vh; /* Adjust as needed */
+}
