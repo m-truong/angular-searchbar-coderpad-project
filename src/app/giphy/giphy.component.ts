@@ -24,7 +24,6 @@ export class GiphyComponent implements OnInit , OnDestroy{
 
 
 	ngOnInit(): void {
-		// WHENever you call RxJS .subscribe() IT returns a Subscription-type listener -> for async data-communication!
 		this.giphyImageSubscription = this.searchBarService.getGiphyData().subscribe((giphyObject) => {
 			console.log('CurrentGiphyObject is...', giphyObject)
 			this.currentGiphyObject = giphyObject
