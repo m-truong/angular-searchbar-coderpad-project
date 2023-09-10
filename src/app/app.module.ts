@@ -14,7 +14,6 @@ import { GiphyModule } from './giphy/giphy.module';
 
 @NgModule({
 	declarations: [AppComponent],
-	// Note: always add all Angular modules as imports to the imports-array
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
@@ -23,7 +22,6 @@ import { GiphyModule } from './giphy/giphy.module';
 		SearchBarModule,
 		GiphyModule,
 	],
-	// Note: always add all Angular services or controllers/resolvers to the providers-array
 	providers: [SearchBarService],
 	bootstrap: [AppComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
