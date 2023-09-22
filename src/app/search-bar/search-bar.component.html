@@ -4,10 +4,10 @@
 	(ngSubmit)="sendGiphyRequest(giphyForm.value)">
 	<label for="giphy">Type your search for GiphyAPI</label>
 	<input
+		ngModel
 		type="text"
 		id="giphy"
 		name="giphy"
-		ngModel
 		required />
 	<button type="submit">Submit</button>
 </form>
